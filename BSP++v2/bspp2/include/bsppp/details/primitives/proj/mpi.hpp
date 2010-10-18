@@ -24,7 +24,7 @@ namespace bsp
     template<class T>
     inline void proj_impl(details::buffer<T>& data,int i,T const& v)
     {
-       std::cout<<"proj MPI"<<std::endl;
+
       std::fill(&data[0],&data[0]+size(),v);
       bmpi::all_gather( runtime::world, &data[pid()], 1, &data[0] );
     }

@@ -12,7 +12,7 @@
 int bsp_main(int argc, char** argv);
 
 
-#if defined(BSP_MPI_TARGET) or (BSP_HYB_TARGET)
+#if defined(BSP_MPI_TARGET) || defined(BSP_HYB_TARGET)
 
 
 /******************************************************************************
@@ -69,7 +69,7 @@ details::runtime::environment = 0;
 //{
 int main (int argc, char** argv)
 {
-using namespace OMP::bsp;
+//using namespace OMP::bsp;
 
 /// start the OMP parallel section
 #pragma omp parallel

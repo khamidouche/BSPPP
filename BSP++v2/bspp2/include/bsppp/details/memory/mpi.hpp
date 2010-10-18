@@ -20,7 +20,6 @@ namespace bsp
     ////////////////////////////////////////////////////////////////////////////
     template<class T> inline void alloc(T*& data,int size)
     {
-        std::cout<<"par ** MPI"<<std::endl;
       data = new T[size];
     }
 

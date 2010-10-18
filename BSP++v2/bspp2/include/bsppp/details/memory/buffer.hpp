@@ -31,7 +31,7 @@ namespace bsp
       typedef T&          reference;
       typedef T const &   const_reference;
 
-      buffer(size_t size) : size_(size) { std::cout<<"buffer"<<std::endl;/*details::alloc(data_,size_);*/alloc(data_,size_); }
+      buffer(size_t size) : size_(size) { /*details::alloc(data_,size_);*/alloc(data_,size_); }
       buffer& operator=( buffer src )   { swap(src); return *this;  } // no throws
 
       ~buffer() { release(data_); }
@@ -76,7 +76,7 @@ namespace bsp
       typedef T&          reference;
       typedef T const &   const_reference;
 
-      buffer(size_t size) : size_(size) { std::cout<<"buffer OMP"<<std::endl; OMP::bsp::details::alloc(data_,size_); }
+      buffer(size_t size) : size_(size) {  OMP::bsp::details::alloc(data_,size_); }
       buffer& operator=( buffer src )   { swap(src); return *this;  } // no throws
 
       ~buffer() { OMP::bsp::details::release(data_); }

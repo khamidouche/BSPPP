@@ -100,7 +100,6 @@ namespace bsp
 
       template<class P> proj& operator=(P const& p)
       {
-         std::cout<<"proooooooojjjjjjjjj"<<std::endl;
         proj_impl(data_,pid(),*p.get());
         return *this;
       }
@@ -114,15 +113,6 @@ namespace bsp
       private:
       details::buffer<T> data_;
     };
-
-
-//    template<class T,class P>
-//    inline proj<T>& operator=(P const& p)
-//      {
-//         std::cout<<"proooooooojjjjjjjjj"<<std::endl;
-//        proj_impl(data_,pid(),*p.get());
-//        return *this;
-//      }
 
 
 

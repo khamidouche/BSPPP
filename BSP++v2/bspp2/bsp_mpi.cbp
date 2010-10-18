@@ -37,7 +37,6 @@
 		<Unit filename="include/bsppp/core/traits/is_bsp_callable.hpp" />
 		<Unit filename="include/bsppp/core/traits/is_par.hpp" />
 		<Unit filename="include/bsppp/details/env/gpu.hpp" />
-		<Unit filename="include/bsppp/details/env/hyb.hpp" />
 		<Unit filename="include/bsppp/details/env/mpi.hpp" />
 		<Unit filename="include/bsppp/details/env/none.hpp" />
 		<Unit filename="include/bsppp/details/env/omp.hpp" />
@@ -46,13 +45,11 @@
 		<Unit filename="include/bsppp/details/memory.hpp" />
 		<Unit filename="include/bsppp/details/memory/buffer.hpp" />
 		<Unit filename="include/bsppp/details/memory/gpu.hpp" />
-		<Unit filename="include/bsppp/details/memory/hyb.hpp" />
 		<Unit filename="include/bsppp/details/memory/mpi.hpp" />
 		<Unit filename="include/bsppp/details/memory/omp.hpp" />
 		<Unit filename="include/bsppp/details/memory/proxy.hpp" />
 		<Unit filename="include/bsppp/details/primitives/proj.hpp" />
 		<Unit filename="include/bsppp/details/primitives/proj/gpu.hpp" />
-		<Unit filename="include/bsppp/details/primitives/proj/hyb.hpp" />
 		<Unit filename="include/bsppp/details/primitives/proj/mpi.hpp" />
 		<Unit filename="include/bsppp/details/primitives/proj/omp.hpp" />
 		<Unit filename="include/bsppp/details/primitives/put.hpp" />
@@ -64,7 +61,6 @@
 		<Unit filename="include/bsppp/details/primitives/size.hpp" />
 		<Unit filename="include/bsppp/details/primitives/sync.hpp" />
 		<Unit filename="include/bsppp/details/primitives/sync/gpu.hpp" />
-		<Unit filename="include/bsppp/details/primitives/sync/hyb.hpp" />
 		<Unit filename="include/bsppp/details/primitives/sync/mpi.hpp" />
 		<Unit filename="include/bsppp/details/primitives/sync/omp.hpp" />
 		<Unit filename="include/bsppp/details/traits/enable_if_type.hpp" />
