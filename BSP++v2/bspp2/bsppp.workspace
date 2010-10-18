@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="BSPPP">
+		<Project filename="bsp_mpi.cbp" />
+		<Project filename="bsp.cbp" />
+		<Project filename="examples/bsp_hello.cbp" active="1" />
+	</Workspace>
+</CodeBlocks_workspace_file>

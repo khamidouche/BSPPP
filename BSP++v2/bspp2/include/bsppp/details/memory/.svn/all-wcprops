@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/parall/metascale/!svn/ver/1355/bsppp/branches/bspp2/include/bsppp/details/memory
+END
+buffer.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/parall/metascale/!svn/ver/364/bsppp/branches/bspp2/include/bsppp/details/memory/buffer.hpp
+END
+gpu.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/parall/metascale/!svn/ver/349/bsppp/branches/bspp2/include/bsppp/details/memory/gpu.hpp
+END
+omp.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/parall/metascale/!svn/ver/349/bsppp/branches/bspp2/include/bsppp/details/memory/omp.hpp
+END
+mpi.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/parall/metascale/!svn/ver/1355/bsppp/branches/bspp2/include/bsppp/details/memory/mpi.hpp
+END
