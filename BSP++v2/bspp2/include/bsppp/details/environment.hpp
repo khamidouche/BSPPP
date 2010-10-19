@@ -15,7 +15,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include <bsppp/details/env/mpi.hpp>
 #include <bsppp/details/env/omp.hpp>
-#include <bsppp/details/env/hyb.hpp>
 #include <bsppp/details/env/gpu.hpp>
 
 namespace MPI

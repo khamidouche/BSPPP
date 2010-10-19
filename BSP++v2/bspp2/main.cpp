@@ -26,6 +26,7 @@ int bsp_main(int argc, char** argv);
 int main (int argc, char** argv)
 {
 /// start the MPI env
+
 if(!details::runtime::running)
         {
           details::runtime::environment = new boost::mpi::environment(argc,argv);

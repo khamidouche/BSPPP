@@ -60,12 +60,18 @@ namespace bsp
     ////////////////////////////////////////////////////////////////////////////
     // Defautl Ctor
     ////////////////////////////////////////////////////////////////////////////
+    par() : data_() {}
+    #if defined(BSP_HYB_TARGET)
     par() : data_(), omp_data(0) {}
+    #endif
 
     ////////////////////////////////////////////////////////////////////////////
     // Ctor from a value_type. Sematically equivalent to replicate
     ////////////////////////////////////////////////////////////////////////////
+    par( const_reference v )  : data_(v)  {  }
+    #if defined(BSP_HYB_TARGET)
     par( const_reference v )  : data_(v), omp_data(0)  {  }
+    #endif
 
     ////////////////////////////////////////////////////////////////////////////
     // Ctor from a par<U>
@@ -74,12 +80,31 @@ namespace bsp
     par( par<U> const& v
        , typename boost::enable_if< boost::is_convertible<T,U> >::type* = 0
        )
-    : data_(*v), omp_data(0) {}
+    : data_(*v) {}
 
+    #if defined(BSP_HYB_TARGET)
+    template<class U>
+    par( par<U> const& v
+       , typename boost::enable_if< boost::is_convertible<T,U> >::type* = 0
+       )
+    : data_(*v), omp_data(0) {}
+    #endif
     ////////////////////////////////////////////////////////////////////////////
     // Ctor from a BSP Callable Entity
     ////////////////////////////////////////////////////////////////////////////
     template<class F>
+    par( F f
+       , typename boost::enable_if< traits::is_bsp_callable<F> >::type* = 0
+       )
+    : data_(f) {}
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Ctor from a C-Array. tab[i] is owned by processor with pid==i.
+    ////////////////////////////////////////////////////////////////////////////
+    template<int N>   par( const T (& t)[N] ) : data_(t[pid()]) {}
+
+    #if defined(BSP_HYB_TARGET)
+     template<class F>
     par( F f
        , typename boost::enable_if< traits::is_bsp_callable<F> >::type* = 0
        )
@@ -89,7 +114,7 @@ namespace bsp
     // Ctor from a C-Array. tab[i] is owned by processor with pid==i.
     ////////////////////////////////////////////////////////////////////////////
     template<int N>   par( const T (& t)[N] ) : data_(t[pid()]), omp_data(0)  {}
-
+    #endif
     ////////////////////////////////////////////////////////////////////////////
     // Affectation from value_type
     ////////////////////////////////////////////////////////////////////////////
@@ -292,8 +317,8 @@ namespace bsp
     ////////////////////////////////////////////////////////////////////////////
     // operator-> is the equivalent to $.$ in BSML v2 for method calls
     ////////////////////////////////////////////////////////////////////////////
-    pointer       operator->()       { return data_;  }
-    const_pointer operator->() const { return data_;  }
+    pointer       operator->()       { return &data_;  }
+    const_pointer operator->() const { return &data_;  }
 
     private:
     ////////////////////////////////////////////////////////////////////////////

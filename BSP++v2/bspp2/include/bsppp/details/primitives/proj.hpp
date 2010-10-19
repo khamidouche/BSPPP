@@ -13,7 +13,6 @@
 #include <bsppp/details/memory/buffer.hpp>
 #include <bsppp/details/primitives/proj/mpi.hpp>
 #include <bsppp/details/primitives/proj/omp.hpp>
-#include <bsppp/details/primitives/proj/hyb.hpp>
 #include <bsppp/details/primitives/proj/gpu.hpp>
 
 namespace MPI
