@@ -60,29 +60,32 @@ namespace bsp
     ////////////////////////////////////////////////////////////////////////////
     // Defautl Ctor
     ////////////////////////////////////////////////////////////////////////////
+    #if !defined(BSP_HYB_TARGET)
     par() : data_() {}
-    #if defined(BSP_HYB_TARGET)
+    #else
     par() : data_(), omp_data(0) {}
     #endif
 
     ////////////////////////////////////////////////////////////////////////////
     // Ctor from a value_type. Sematically equivalent to replicate
     ////////////////////////////////////////////////////////////////////////////
+    #if !defined(BSP_HYB_TARGET)
     par( const_reference v )  : data_(v)  {  }
-    #if defined(BSP_HYB_TARGET)
+    #else
     par( const_reference v )  : data_(v), omp_data(0)  {  }
     #endif
 
     ////////////////////////////////////////////////////////////////////////////
     // Ctor from a par<U>
     ////////////////////////////////////////////////////////////////////////////
+    #if !defined(BSP_HYB_TARGET)
     template<class U>
     par( par<U> const& v
        , typename boost::enable_if< boost::is_convertible<T,U> >::type* = 0
        )
     : data_(*v) {}
 
-    #if defined(BSP_HYB_TARGET)
+    #else
     template<class U>
     par( par<U> const& v
        , typename boost::enable_if< boost::is_convertible<T,U> >::type* = 0
@@ -92,6 +95,7 @@ namespace bsp
     ////////////////////////////////////////////////////////////////////////////
     // Ctor from a BSP Callable Entity
     ////////////////////////////////////////////////////////////////////////////
+    #if !defined(BSP_HYB_TARGET)
     template<class F>
     par( F f
        , typename boost::enable_if< traits::is_bsp_callable<F> >::type* = 0
@@ -103,7 +107,7 @@ namespace bsp
     ////////////////////////////////////////////////////////////////////////////
     template<int N>   par( const T (& t)[N] ) : data_(t[pid()]) {}
 
-    #if defined(BSP_HYB_TARGET)
+    #else
      template<class F>
     par( F f
        , typename boost::enable_if< traits::is_bsp_callable<F> >::type* = 0
