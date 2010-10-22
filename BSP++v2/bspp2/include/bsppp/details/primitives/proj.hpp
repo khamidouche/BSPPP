@@ -137,7 +137,7 @@ namespace bsp
   typename boost::enable_if< traits::is_par<T>
                            , boost::reference_wrapper<T const>
                            >::type
-  proj(T const& v)         { std::cout<<"OMPPPPPPPP"<<std::endl;return boost::cref(v);    }
+  proj(T const& v)         { return boost::cref(v);    }
 }
 }
 
