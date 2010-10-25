@@ -2,7 +2,8 @@
 //#include <iostream>
 //#include <bsppp/bsppp.hpp>
 //
-//
+//#include <functional>
+//#include <numeric>
 //#include <algorithm>
 //#include <vector>
 //#include <ctime>
@@ -274,3 +275,5 @@
 //
 //return 0;
 //}
+
+

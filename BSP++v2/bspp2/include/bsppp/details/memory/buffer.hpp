@@ -31,6 +31,9 @@ namespace bsp
       typedef T&          reference;
       typedef T const &   const_reference;
 
+      typedef T*          iterator;
+      typedef T const *   const_iterator;
+
       buffer(size_t size) : size_(size) { /*details::alloc(data_,size_);*/alloc(data_,size_); }
       buffer& operator=( buffer src )   { swap(src); return *this;  } // no throws
 
@@ -44,6 +47,12 @@ namespace bsp
 
       reference       operator[](size_t i)        { return data_[i];  }
       const_reference operator[](size_t i)  const { return data_[i];  }
+
+      iterator begin() {return data_;}
+      iterator end()   {return data_+size_;}
+
+      const_iterator begin() const   {return data_;}
+      const_iterator end() const     {return data_+size_;}
 
       private:
       size_t  size_;
@@ -76,6 +85,10 @@ namespace bsp
       typedef T&          reference;
       typedef T const &   const_reference;
 
+      typedef T*          iterator;
+      typedef T const *   const_iterator;
+
+
       buffer(size_t size) : size_(size) {  OMP::bsp::details::alloc(data_,size_); }
       buffer& operator=( buffer src )   { swap(src); return *this;  } // no throws
 
@@ -89,6 +102,13 @@ namespace bsp
 
       reference       operator[](size_t i)        { return data_[i];  }
       const_reference operator[](size_t i)  const { return data_[i];  }
+
+
+      iterator begin() {return data_;}
+      iterator end()   {return data_+size_;}
+
+      const_iterator begin() const   {return data_;}
+      const_iterator end() const     {return data_+size_;}
 
       private:
       size_t  size_;

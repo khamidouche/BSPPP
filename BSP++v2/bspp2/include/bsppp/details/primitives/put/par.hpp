@@ -31,6 +31,9 @@ namespace bsp
     typedef details::put_data<T>        value_type;
     typedef details::put_data<T>&       reference;
     typedef details::put_data<T> const& const_reference;
+    typedef details::put_data<T>*       pointer;
+    typedef details::put_data<T> const* const_pointer;
+
     typedef typename value_type::base   base;
 
     par() : results_(details::put_impl<base>::extent()) {}
@@ -48,6 +51,9 @@ namespace bsp
 
     reference       operator*()       { return data_;  }
     const_reference operator*() const { return data_;  }
+
+    pointer         operator->()       { return &data_;  }
+    const_pointer   operator->() const { return &data_;  }
 
     private:
     details::buffer<base> results_;
@@ -96,6 +102,10 @@ namespace bsp
     typedef details::put_data<T>        value_type;
     typedef details::put_data<T>&       reference;
     typedef details::put_data<T> const& const_reference;
+    typedef details::put_data<T>*       pointer;
+    typedef details::put_data<T> const* const_pointer;
+
+
     typedef typename value_type::base   base;
 
     par() : results_(details::put_impl<base>::extent()) {}
@@ -113,6 +123,10 @@ namespace bsp
 
     reference       operator*()       { return data_;  }
     const_reference operator*() const { return data_;  }
+
+    pointer         operator->()       { return &data_;  }
+    const_pointer   operator->() const { return &data_;  }
+
 
     private:
     details::buffer<base> results_;

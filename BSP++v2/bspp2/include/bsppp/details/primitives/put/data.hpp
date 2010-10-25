@@ -25,6 +25,10 @@ namespace bsp
     {
       typedef typename traits::bsp_result<Func>::type base;
 
+      typedef typename buffer<base>::iterator       iterator;
+      typedef typename buffer<base>::iterator const const_iterator;
+
+
       put_data(): pid1(pid()), size1(size()) {}
 
       put_data(par< Func > const& f) : function_(*f), pid1(pid()),size1(size()) {}
@@ -41,6 +45,12 @@ namespace bsp
       {
         return put_impl<base>::at(*data_,i,pid1,size1);
       }
+
+      iterator begin() {return data_->begin();}
+      iterator end() {return data_->end();}
+
+      const_iterator begin() const {return data_->begin();}
+      const_iterator end() const   {return data_->end();}
 
       private:
       Func        function_;
@@ -63,6 +73,9 @@ namespace bsp
     {
       typedef typename traits::bsp_result<Func>::type base;
 
+      typedef typename buffer<base>::iterator       iterator;
+      typedef typename buffer<base>::iterator const const_iterator;
+
       put_data(): pid1(pid()), size1(size()) {}
 
       put_data(par< Func > const& f) : function_(*f), pid1(pid()),size1(size()) {}
@@ -79,6 +92,13 @@ namespace bsp
       {
         return put_impl<base>::at(*data_,i,pid1,size1);
       }
+
+
+      iterator begin() {return data_->begin();}
+      iterator end() {return data_->end();}
+
+      const_iterator begin() const {return data_->begin();}
+      const_iterator end() const   {return data_->end();}
 
       private:
       Func        function_;

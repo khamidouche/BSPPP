@@ -26,6 +26,10 @@ namespace bsp
     ////////////////////////////////////////////////////////////////////////////
     template<class T> struct proj
     {
+
+
+      typedef typename buffer<T>::iterator       iterator;
+      typedef typename buffer<T>::iterator const const_iterator;
       // Default constructor
       proj() : data_(size()) {}
 
@@ -47,6 +51,13 @@ namespace bsp
 
       // polymorphic function obejct interface
       result_type operator()(int i) const { return data_[i]; }
+
+
+      iterator begin() {return data_.begin();}
+      iterator end() {return data_.end();}
+
+      const_iterator begin() const {return data_.begin();}
+      const_iterator end() const   {return data_.end();}
 
       private:
       details::buffer<T> data_;
@@ -88,6 +99,8 @@ namespace bsp
     ////////////////////////////////////////////////////////////////////////////
     template<class T> struct proj
     {
+      typedef typename buffer<T>::iterator       iterator;
+      typedef typename buffer<T>::iterator const const_iterator;
       // Default constructor
       proj() : data_(size()) {}
 
@@ -108,6 +121,13 @@ namespace bsp
 
       // polymorphic function obejct interface
       result_type operator()(int i) const { return data_[i]; }
+
+
+      iterator begin() {return data_.begin();}
+      iterator end() {return data_.end();}
+
+      const_iterator begin() const {return data_.begin();}
+      const_iterator end() const   {return data_.end();}
 
       private:
       details::buffer<T> data_;
