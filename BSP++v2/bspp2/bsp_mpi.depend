@@ -14244,7 +14244,7 @@
 1287401610 source:/home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/src/environment.cpp
 	<bsppp/bsppp.hpp>
 
-1287401610 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/bsppp.hpp
+1288019062 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/bsppp.hpp
 	<bsppp/core/environment.hpp>
 	<bsppp/core/par.hpp>
 	<bsppp/core/pid.hpp>
@@ -14261,7 +14261,7 @@
 	<bsppp/details/env/omp.hpp>
 	<bsppp/details/env/gpu.hpp>
 
-1287401610 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/details/env/mpi.hpp
+1288020621 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/details/env/mpi.hpp
 	<boost/mpi.hpp>
 	<sys/time.h>
 
@@ -14320,11 +14320,12 @@
 
 1287401610 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/details/traits/enable_if_type.hpp
 
-1287401610 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/core/primitives.hpp
+1288017522 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/core/primitives.hpp
 	<bsppp/details/primitives/size.hpp>
 	<bsppp/details/primitives/sync.hpp>
 	<bsppp/details/primitives/proj.hpp>
 	<bsppp/details/primitives/put.hpp>
+	<bsppp/details/primitives/split.hpp>
 
 1287401610 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/details/primitives/size.hpp
 
@@ -14383,7 +14384,7 @@
 	<bsppp/details/primitives/put/par.hpp>
 	<bsppp/core/traits/is_bsp_callable.hpp>
 
-1287997171 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/details/primitives/put/par.hpp
+1288017154 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/details/primitives/put/par.hpp
 	<boost/function.hpp>
 	<bsppp/details/memory/buffer.hpp>
 	<bsppp/details/primitives/put/data.hpp>
@@ -14411,4 +14412,17 @@
 
 1287401610 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/details/primitives/put/gpu.hpp
 	<bsppp/details/memory/buffer.hpp>
+
+1288095323 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/details/primitives/split.hpp
+	<boost/utility/result_of.hpp>
+	<bsppp/core/par.hpp>
+	<bsppp/details/primitives/is_range.hpp>
+	<boost/range/adaptor/sliced.hpp>
+
+1288085972 /home/hamidou/Documents/BSP_/BSPPP/BSP++v2/bspp2/include/bsppp/details/primitives/is_range.hpp
+	<cstddef>
+	<boost/range/config.hpp>
+	<boost/mpl/has_xxx.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/mpl/and.hpp>
 

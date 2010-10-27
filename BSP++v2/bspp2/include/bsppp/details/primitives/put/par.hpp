@@ -59,32 +59,7 @@ namespace bsp
     details::buffer<base> results_;
     value_type            data_;
   };
-
-
-
-  template<class T> inline
-  boost::iterator_range< typename std::vector<T>::iterator > split (std::vector<T> & value)
-   {
-
-//     if (is_integral<T>::type == true_type)
-//     {
-//         return value;
-//      }
-//      else
-//      {
-        int offset= value.size()/bsp::size();
-
-
-
-        return boost::make_iterator_range(value.begin()+(offset*bsp::pid()),value.begin()+(offset*bsp::pid())+offset);
-     // }
-
-      }
-
-
-
-}
-}
+} }
 
 
 namespace OMP
@@ -145,11 +120,11 @@ namespace bsp
 //      }
 //      else
 //      {
-        int offset= value.size()/bsp::size();
+        int offset= value.size()/size();
 
 
 
-        return boost::make_iterator_range(value.begin()+(offset*bsp::pid()),value.begin()+(offset*bsp::pid())+offset);
+        return boost::make_iterator_range(value.begin()+(offset*pid()),value.begin()+(offset*pid())+offset);
      // }
 
       }

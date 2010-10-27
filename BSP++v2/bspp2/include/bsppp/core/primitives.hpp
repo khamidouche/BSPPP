@@ -16,5 +16,7 @@
 #include <bsppp/details/primitives/sync.hpp>
 #include <bsppp/details/primitives/proj.hpp>
 #include <bsppp/details/primitives/put.hpp>
+#include <bsppp/details/primitives/split.hpp>
+#include <bsppp/details/primitives/is_range.hpp>
 
 #endif
