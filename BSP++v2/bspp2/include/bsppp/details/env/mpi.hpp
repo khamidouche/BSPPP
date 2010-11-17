@@ -70,6 +70,7 @@ namespace bsp
 #define BSP_STARTUP() BSP_PRAGMA( omp parallel ) \
   {                                              \
    using OMP::bsp::pid;                 \
+   using OMP::bsp::time;                 \
    using OMP::bsp::size;                \
    using OMP::bsp::par;                \
    using OMP::bsp::put;                \

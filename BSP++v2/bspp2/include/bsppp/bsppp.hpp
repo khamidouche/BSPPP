@@ -20,6 +20,7 @@
 
 #if defined(BSP_MPI_TARGET) || defined(BSP_HYB_TARGET)
  using MPI::bsp::pid;
+ using MPI::bsp::time;
  using MPI::bsp::size;
  using MPI::bsp::par;
  using MPI::bsp::put;
@@ -29,6 +30,7 @@
  using MPI::bsp::result_of_put;
 #elif defined(BSP_OMP_TARGET)
  using OMP::bsp::pid;
+ using OMP::bsp::time;
  using OMP::bsp::size;
  using OMP::bsp::par;
  using OMP::bsp::put;

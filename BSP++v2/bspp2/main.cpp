@@ -27,12 +27,12 @@ int main (int argc, char** argv)
 {
 /// start the MPI env
 
-if(!details::runtime::running)
+if(!MPI::bsp::details::runtime::running)
         {
-          details::runtime::environment = new boost::mpi::environment(argc,argv);
-          details::runtime::rank        = details::runtime::world.rank();
-          details::runtime::procs       = details::runtime::world.size();
-          details::runtime::running     = true;
+          MPI::bsp::details::runtime::environment = new boost::mpi::environment(argc,argv);
+          MPI::bsp::details::runtime::rank        = MPI::bsp::details::runtime::world.rank();
+          MPI::bsp::details::runtime::procs       = MPI::bsp::details::runtime::world.size();
+          MPI::bsp::details::runtime::running     = true;
         }
 
 /// call to the user main function
@@ -43,8 +43,8 @@ bsp_main(argc, argv);
 /// Finalize the MPI env
 
 
-if(details::runtime::environment) delete details::runtime::environment;
-details::runtime::environment = 0;
+if(MPI::bsp::details::runtime::environment) delete MPI::bsp::details::runtime::environment;
+MPI::bsp::details::runtime::environment = 0;
 
 
 
