@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="libbsppp_mpi" />
+		<Option pch_mode="2" />
+		<Option compiler="icc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/libbsppp_mpi" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-I/usr/lib/openmpi/include -I/usr/lib/openmpi/include/openmpi -pthread -L/usr/lib/openmpi/lib" />
+					<Add option="-DBSP_MPI_TARGET" />
+					<Add directory="/usr/local/include/boost-1_39" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lmpi_cxx -lmpi -lopen-rte" />
+					<Add option="-lopen-pal -ldl" />
+					<Add option="-Wl,--export-dynamic" />
+					<Add option="-lnsl -lutil -lm -ldl" />
+					<Add library="/usr/local/lib/libboost_mpi-gcc43-mt.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="include/bsppp/bsppp.hpp" />
+		<Unit filename="include/bsppp/core/environment.hpp" />
+		<Unit filename="include/bsppp/core/par.hpp" />
+		<Unit filename="include/bsppp/core/pid.hpp" />
+		<Unit filename="include/bsppp/core/primitives.hpp" />
+		<Unit filename="include/bsppp/core/replicate.hpp" />
+		<Unit filename="include/bsppp/core/traits/bsp_result.hpp" />
+		<Unit filename="include/bsppp/core/traits/is_bsp_callable.hpp" />
+		<Unit filename="include/bsppp/core/traits/is_par.hpp" />
+		<Unit filename="include/bsppp/details/env/gpu.hpp" />
+		<Unit filename="include/bsppp/details/env/mpi.hpp" />
+		<Unit filename="include/bsppp/details/env/none.hpp" />
+		<Unit filename="include/bsppp/details/env/omp.hpp" />
+		<Unit filename="include/bsppp/details/environment.hpp" />
+		<Unit filename="include/bsppp/details/macros.hpp" />
+		<Unit filename="include/bsppp/details/memory.hpp" />
+		<Unit filename="include/bsppp/details/memory/buffer.hpp" />
+		<Unit filename="include/bsppp/details/memory/gpu.hpp" />
+		<Unit filename="include/bsppp/details/memory/mpi.hpp" />
+		<Unit filename="include/bsppp/details/memory/omp.hpp" />
+		<Unit filename="include/bsppp/details/memory/proxy.hpp" />
+		<Unit filename="include/bsppp/details/primitives/proj.hpp" />
+		<Unit filename="include/bsppp/details/primitives/proj/gpu.hpp" />
+		<Unit filename="include/bsppp/details/primitives/proj/mpi.hpp" />
+		<Unit filename="include/bsppp/details/primitives/proj/omp.hpp" />
+		<Unit filename="include/bsppp/details/primitives/put.hpp" />
+		<Unit filename="include/bsppp/details/primitives/put/data.hpp" />
+		<Unit filename="include/bsppp/details/primitives/put/gpu.hpp" />
+		<Unit filename="include/bsppp/details/primitives/put/mpi.hpp" />
+		<Unit filename="include/bsppp/details/primitives/put/omp.hpp" />
+		<Unit filename="include/bsppp/details/primitives/put/par.hpp" />
+		<Unit filename="include/bsppp/details/primitives/size.hpp" />
+		<Unit filename="include/bsppp/details/primitives/sync.hpp" />
+		<Unit filename="include/bsppp/details/primitives/sync/gpu.hpp" />
+		<Unit filename="include/bsppp/details/primitives/sync/mpi.hpp" />
+		<Unit filename="include/bsppp/details/primitives/sync/omp.hpp" />
+		<Unit filename="include/bsppp/details/traits/enable_if_type.hpp" />
+		<Unit filename="include/bsppp/details/traits/is_function_type.hpp" />
+		<Unit filename="include/bsppp/details/traits/is_result_of_supported.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/environment.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
