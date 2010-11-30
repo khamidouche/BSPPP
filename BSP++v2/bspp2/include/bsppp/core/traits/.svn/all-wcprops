@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/parall/metascale/!svn/ver/368/bsppp/branches/bspp2/include/bsppp/core/traits
+END
+is_par.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/parall/metascale/!svn/ver/363/bsppp/branches/bspp2/include/bsppp/core/traits/is_par.hpp
+END
+is_bsp_callable.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/parall/metascale/!svn/ver/364/bsppp/branches/bspp2/include/bsppp/core/traits/is_bsp_callable.hpp
+END
+bsp_result.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/parall/metascale/!svn/ver/368/bsppp/branches/bspp2/include/bsppp/core/traits/bsp_result.hpp
+END

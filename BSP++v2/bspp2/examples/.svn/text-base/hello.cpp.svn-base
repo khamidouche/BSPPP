@@ -1,0 +1,187 @@
+#include <iostream>
+#include <bsppp/bsppp.hpp>
+#include <boost/lambda/lambda.hpp>
+#include <boost/lambda/bind.hpp>
+
+//#include "inprod.hpp"
+//#include "test_GMV.hpp"
+
+#include "data.hpp"
+#include "test.hpp"
+
+using namespace std;
+using namespace bsp;
+
+namespace bl = boost::lambda;
+
+float f(int i)
+{
+  return 1.f/(1+i);
+}
+/*
+struct sender
+{
+  sender() {}
+  sender( par<float> const& v) : value(v) {}
+
+  template<class Sig> struct result;
+  template<class This,class T> struct result<This(T)>
+  {
+    typedef float type;
+  };
+
+  float operator()(int dest)
+  {
+    switch(*pid_)
+    {
+      case 0: return (dest==1 || dest==2) ? *value : 0;
+      default: return 0;
+    }
+  }
+
+  par<float> value;
+};
+*/
+//float sender2( int to, par<float> const& p )
+//{
+//  return (*pid_ == to) ? -1 : (*pid_+1)*10+*p;
+//}
+vector<double> sender2( int to, par<vector<double> > const& p,int a, int b )
+{
+    a=b+1;
+  return  *p;
+}
+
+
+vector<double> inline  fun_ligne1 ( int ind, par<vector<double> > const& v, int s, int t, int N, int M)
+  {
+      if(ind==(s+(((t+1)%M)*N)))
+                      return *v;
+          else return  vector<double> ();
+
+  }
+
+// implanter les collectives MPI en BSP++
+void hello(int argc, char** argv)
+{
+    vector<double> D(100);
+  BSP_FUNCTION(argc,argv)
+  {
+    // Super-step 1
+    double t1,t2,Tcomp=0.0,Tcomm=0.0;
+
+    /*
+    par<float> p;
+    p = f(*pid_);
+
+    cout << *pid_ << " = " << *p << endl;
+    sync();
+
+    // Super-step 2
+
+    result_of::proj<float>::type fw;
+    fw = proj(p);
+
+    // Super-step
+    for(int i=0;i< bsp::size();++i)
+      printf("%d received %f from %d\n",*pid_,fw(i),i);
+       t1=bsp::time();
+    bsp::synchronize();
+ t2=bsp::time();
+ cout<<"temps == "<<t2-t1<<endl;
+    puts("");
+    // Super-step
+
+//    par< sender > s = sender(p);
+//    result_of::put<sender>::type recv;
+//    recv = put( s );
+
+    par< boost::function<float(int)> > s = bl::bind(sender2,bl::_1,p);
+    result_of::put< boost::function<float(int)> >::type recv;
+    recv = put( s );
+
+   // Super-step
+    for(int i=0;i< bsp::size();++i)
+      printf("%d received %f from %d\n",*pid_,(*recv)(i),i);
+    bsp::synchronize();
+    */
+
+
+    int N,P=1;
+    N=atoi(argv[1]);
+
+    par<vector<double> > p;
+    p=vector<double> (N);
+
+    vector<double> A(N);
+    vector<double> B(N);
+    vector<double> C(N);
+
+    data<double> M(N,N);
+
+
+ //
+
+//     result_of::proj<vector<double> >::type fw;
+//    fw = proj(p);
+//
+
+
+ for(int i=0;i<N;i++){
+    for(int j=0;j<N;j++)
+      {
+       M(i,j)=1.0;
+       }
+  }
+  for(int j=0;j<N;j++)
+      {
+       A[j]=1.0;
+       }
+
+
+  for(int i=0;i<N;i++)
+      (*p)[i]=0.0;
+
+
+
+par< boost::function<vector<double>(int)> > s = bl::bind(sender2,bl::_1,p,2,3);
+   // result_of::put< boost::function<vector<double>(int)> >::type recv;
+//
+//
+
+t1=bsp::time();
+//for(int k=0;k<100;k++)
+//{
+
+//    for(int i=0;i<N;i++)
+//     for(int j=0;j<N;j++)
+//         {
+//              (*p)[i] =A[i]*M(i,j);
+//
+//
+//           }
+      test(N,P,A,M,B,p,Tcomp,Tcomm);
+
+ t2=bsp::time();
+cout<<" tamps *  =  "<<(t2-t1)<<endl;
+
+
+    // recv = put( s );
+
+// par< boost::function< vector<double>(int)> > s2 = bl::bind(fun_ligne1,bl::_1,p,1,1,1,1);
+//        result_of::put< boost::function<vector<double> (int)> >::type recv1;
+
+//}
+
+
+
+  }
+}
+
+int main(int argc, char** argv)
+{
+  hello(argc,argv);
+ // bspinprod<double>(argc,argv);
+ // test_gmv<double>(argc,argv);
+  return 0;
+}

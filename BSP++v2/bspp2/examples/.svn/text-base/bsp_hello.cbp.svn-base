@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="bsp_hello" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/bsp_hello" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-fopenmp" />
+					<Add option="-DBSP_OMP_TARGET" />
+					<Add directory="/usr/local/include/boost-1_40" />
+					<Add directory="../include" />
+					<Add directory="/usr/include/mpi" />
+				</Compiler>
+				<Linker>
+					<Add option="-lmpi_cxx -lmpi -lopen-rte" />
+					<Add option="-lopen-pal -ldl -Wl,--export-dynamic" />
+					<Add option="-lnsl -lutil -lm -ldl" />
+					<Add option="-fopenmp" />
+					<Add library="/usr/local/lib/libboost_program_options-gcc43-mt-1_40.a" />
+					<Add library="../bin/Release/libbsppp_mpi.a" />
+					<Add library="/usr/local/lib/libboost_mpi-gcc43-mt.a" />
+					<Add library="../bin/Release/libbsp_omp.a" />
+					<Add library="/usr/local/lib/libboost_serialization-gcc43-mt-1_40" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="hello.cpp" />
+		<Unit filename="inprod.hpp" />
+		<Unit filename="../src/environment.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

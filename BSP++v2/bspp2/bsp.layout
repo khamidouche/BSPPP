@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="include/bsppp/bsppp.hpp" open="1" top="0" tabpos="1">
+		<Cursor position="639" topLine="0" />
+	</File>
+	<File name="include/bsppp/core/environment.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/core/par.hpp" open="1" top="0" tabpos="7">
+		<Cursor position="3108" topLine="50" />
+	</File>
+	<File name="include/bsppp/core/pid.hpp" open="1" top="0" tabpos="8">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/core/primitives.hpp" open="1" top="0" tabpos="2">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/core/replicate.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/env/gpu.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/env/mpi.hpp" open="0" top="0" tabpos="6">
+		<Cursor position="0" topLine="17" />
+	</File>
+	<File name="include/bsppp/details/env/none.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/env/omp.hpp" open="1" top="0" tabpos="9">
+		<Cursor position="756" topLine="23" />
+	</File>
+	<File name="include/bsppp/details/environment.hpp" open="1" top="0" tabpos="2">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/macros.hpp" open="1" top="0" tabpos="5">
+		<Cursor position="0" topLine="2" />
+	</File>
+	<File name="include/bsppp/details/memory.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/memory/buffer.hpp" open="1" top="0" tabpos="6">
+		<Cursor position="981" topLine="22" />
+	</File>
+	<File name="include/bsppp/details/memory/mpi.hpp" open="1" top="0" tabpos="8">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/memory/omp.hpp" open="1" top="0" tabpos="7">
+		<Cursor position="0" topLine="6" />
+	</File>
+	<File name="include/bsppp/details/primitives/proj.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="1385" topLine="21" />
+	</File>
+	<File name="include/bsppp/details/primitives/proj/mpi.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/primitives/proj/omp.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/primitives/put.hpp" open="1" top="0" tabpos="4">
+		<Cursor position="1218" topLine="2" />
+	</File>
+	<File name="include/bsppp/details/primitives/put/data.hpp" open="1" top="0" tabpos="5">
+		<Cursor position="888" topLine="14" />
+	</File>
+	<File name="include/bsppp/details/primitives/put/mpi.hpp" open="1" top="0" tabpos="3">
+		<Cursor position="1009" topLine="3" />
+	</File>
+	<File name="include/bsppp/details/primitives/put/omp.hpp" open="1" top="0" tabpos="11">
+		<Cursor position="0" topLine="6" />
+	</File>
+	<File name="include/bsppp/details/primitives/put/par.hpp" open="1" top="0" tabpos="10">
+		<Cursor position="1821" topLine="47" />
+	</File>
+	<File name="include/bsppp/details/primitives/size.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/primitives/sync.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/primitives/sync/mpi.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/bsppp/details/primitives/sync/omp.hpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="src/environment.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1013" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
