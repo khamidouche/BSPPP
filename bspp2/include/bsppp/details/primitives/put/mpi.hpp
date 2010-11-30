@@ -9,11 +9,13 @@
 #define BSPPP_DETAILS_PRIMITIVES_PUT_MPI_HPP_INCLUDED
 
 /******************************************************************************
- * BSP put for OpenMP
+ * BSP put for MPI
  ******************************************************************************/
-#if defined(BSP_MPI_TARGET)
+
 #include <bsppp/details/memory/buffer.hpp>
 
+namespace MPI
+{
 namespace bsp
 {
   namespace details
@@ -32,6 +34,6 @@ namespace bsp
     };
   }
 }
-#endif
+}
 
 #endif

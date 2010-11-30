@@ -8,8 +8,9 @@
 #ifndef BSPPP_DETAILS_MEMORY_MPI_HPP_INCLUDED
 #define BSPPP_DETAILS_MEMORY_MPI_HPP_INCLUDED
 
-#if defined(BSP_MPI_TARGET)
 
+namespace MPI
+{
 namespace bsp
 {
   namespace details
@@ -32,7 +33,6 @@ namespace bsp
     }
   }
 }
-
-#endif
+}
 
 #endif

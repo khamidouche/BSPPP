@@ -8,11 +8,14 @@
 #ifndef BSPPP_DETAILS_ENV_MPI_HPP_INCLUDED
 #define BSPPP_DETAILS_ENV_MPI_HPP_INCLUDED
 
-#if defined(BSP_MPI_TARGET)
 #include <boost/mpi.hpp>
 #include <sys/time.h>
+
+namespace MPI
+{
 namespace bsp
 {
+
   namespace details
   {
     namespace bmpi = boost::mpi;
@@ -24,19 +27,19 @@ namespace bsp
     {
       static void startup(int argc, char** argv)
       {
-        if(!running)
-        {
-          environment = new bmpi::environment(argc,argv);
-          rank        = world.rank();
-          procs       = world.size();
-          running     = true;
-        }
+//        if(!running)
+//        {
+//          environment = new bmpi::environment(argc,argv);
+//          rank        = world.rank();
+//          procs       = world.size();
+//          running     = true;
+//        }
       }
 
       static void shutdown()
       {
-        if(environment) delete environment;
-        environment = 0;
+//        if(environment) delete environment;
+//        environment = 0;
       }
 
       static int pid()     { return rank;   }
@@ -60,12 +63,30 @@ namespace bsp
     };
   }
 }
-
+}
 ////////////////////////////////////////////////////////////////////////////////
 // BSP Environnement helper macros
 ////////////////////////////////////////////////////////////////////////////////
-#define BSP_STARTUP()
+#define BSP_STARTUP() BSP_PRAGMA( omp parallel ) \
+  {                                              \
+   using OMP::bsp::pid;                 \
+   using OMP::bsp::time;                 \
+   using OMP::bsp::size;                \
+   using OMP::bsp::par;                \
+   using OMP::bsp::put;                \
+   using OMP::bsp::proj;                \
+   using OMP::bsp::synchronize; \
+    using OMP::bsp::result_of_proj;    \
+    using OMP::bsp::result_of_put;    \
+ using OMP::bsp::result_of_split;\
+ using OMP::bsp::split; \
+ using OMP::bsp::linear; \
+   /**/
 
-#endif
+
+
+#define BSP_HYB_END() }
+
+
 
 #endif

@@ -11,9 +11,11 @@
 /******************************************************************************
  * BSP proj for OpenMP
  ******************************************************************************/
-#if defined(BSP_OMP_TARGET)
+
 #include <bsppp/details/memory/buffer.hpp>
 
+namespace OMP
+{
 namespace bsp
 {
   namespace details
@@ -26,6 +28,6 @@ namespace bsp
     }
   }
 }
-#endif
+}
 
 #endif

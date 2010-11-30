@@ -21,14 +21,43 @@ if (bool stop_ = false) {} else                                     \
 for(; !stop_; stop_ = true)                                         \
  BSP_STARTUP()                                                      \
 
+
+
+#define BSP_HYB_START(argc,argv)                                     \
+OMP::bsp::details::environment BOOST_PP_CAT(env,__COUNTER__)(argc,argv); \
+if (bool stop_ = false) {} else                                     \
+for(; !stop_; stop_ = true)                                         \
+ BSP_STARTUP()
+
+
+
+
+namespace MPI
+{
 namespace bsp
 {
   //////////////////////////////////////////////////////////////////////////////
   // BSP machine PID
   // Returns the local PID on a BSP machine processor
   //////////////////////////////////////////////////////////////////////////////
-  int inline pid() { return details::runtime::pid(); }
+  int inline pid() {return details::runtime::pid(); }
   double inline time() { return details::runtime::time(); }
 }
+}
+
+namespace OMP
+{
+namespace bsp
+{
+  //////////////////////////////////////////////////////////////////////////////
+  // BSP machine PID
+  // Returns the local PID on a BSP machine processor
+  //////////////////////////////////////////////////////////////////////////////
+  int inline pid() {return details::runtime::pid(); }
+  double inline time() { return details::runtime::time(); }
+}
+}                                                     \
+
+
 
 #endif

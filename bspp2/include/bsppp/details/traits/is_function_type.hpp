@@ -14,6 +14,8 @@
 #include <boost/type_traits/is_pointer.hpp>
 #include <boost/type_traits/remove_pointer.hpp>
 
+namespace MPI
+{
 namespace bsp
 {
   namespace details
@@ -26,6 +28,23 @@ namespace bsp
                                             >
                           > {};
   }
+}
+}
+namespace OMP
+{
+namespace bsp
+{
+  namespace details
+  {
+    template<class T>
+    struct is_function_type
+         : boost::mpl::or_< boost::is_function<T>
+                          , boost::mpl::and_< boost::is_function<typename boost::remove_pointer<T>::type>
+                                            , boost::is_pointer<T>
+                                            >
+                          > {};
+  }
+}
 }
 
 #endif

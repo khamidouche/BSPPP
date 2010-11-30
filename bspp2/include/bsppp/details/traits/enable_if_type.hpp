@@ -8,6 +8,8 @@
 #ifndef BSPPP_DETAILS_TRAITS_ENABLE_IF_TYPE_HPP_INCLUDED
 #define BSPPP_DETAILS_TRAITS_ENABLE_IF_TYPE_HPP_INCLUDED
 
+namespace MPI
+{
 namespace bsp
 {
   namespace details
@@ -22,5 +24,23 @@ namespace bsp
     };
   }
 }
+}
 
+namespace OMP
+{
+namespace bsp
+{
+  namespace details
+  {
+    ////////////////////////////////////////////////////////////////////////////
+    /// SFINAE check on type existence
+    /// If type T is a valid type, then enable_if<T,R>::type evaluates to R
+    ////////////////////////////////////////////////////////////////////////////
+    template<class T, class Result=void> struct enable_if_type
+    {
+      typedef Result type;
+    };
+  }
+}
+}
 #endif

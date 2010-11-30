@@ -17,6 +17,8 @@
 #include <bsppp/details/env/omp.hpp>
 #include <bsppp/details/env/gpu.hpp>
 
+namespace MPI
+{
 namespace bsp
 {
   namespace details
@@ -27,6 +29,24 @@ namespace bsp
       ~environment()                      { runtime::shutdown();          }
     };
   }
+}
+}
+
+namespace OMP
+{
+namespace bsp
+{
+  namespace details
+  {
+
+     struct environment
+     {
+       environment(int argc,char** argv)  { runtime::startup(argc,argv);  }
+      ~environment()                      { runtime::shutdown();          }
+     };
+
+  }
+}
 }
 
 #endif

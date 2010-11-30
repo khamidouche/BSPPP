@@ -10,6 +10,8 @@
 
 #include <bsppp/core/environment.hpp>
 
+namespace MPI
+{
 namespace bsp
 {
   namespace constant
@@ -32,5 +34,31 @@ namespace bsp
   //////////////////////////////////////////////////////////////////////////////
   constant::pid_ const pid_ = {};
 }
+}
 
+namespace OMP
+{
+namespace bsp
+{
+  namespace constant
+  {
+    class pid_
+    {
+      public:
+      typedef int value_type;
+      typedef int reference;
+      typedef int const_reference;
+
+      int operator*() const { return pid(); }
+    };
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  // BSP pid_ parallel vector
+  // pid_ is a predefined parallel vector so that *pid_ is always equal to local
+  // parallel machine rank.
+  //////////////////////////////////////////////////////////////////////////////
+  constant::pid_ const pid_ = {};
+}
+}
 #endif

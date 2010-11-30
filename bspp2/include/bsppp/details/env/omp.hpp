@@ -10,11 +10,13 @@
 
 
 
-#if defined(BSP_OMP_TARGET)
 #include <omp.h>
 #include <boost/program_options.hpp>
 #include <bsppp/details/macros.hpp>
 #include <sys/time.h>
+
+namespace OMP
+{
 namespace bsp
 {
   namespace details
@@ -55,12 +57,13 @@ namespace bsp
     };
   }
 }
-
+}
 ////////////////////////////////////////////////////////////////////////////////
 // BSP Environnement helper macros
 ////////////////////////////////////////////////////////////////////////////////
-#define BSP_STARTUP() BSP_PRAGMA( omp parallel )
+//#define BSP_STARTUP() //BSP_PRAGMA( omp parallel )
 
-#endif
+
+
 
 #endif

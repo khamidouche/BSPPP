@@ -19,6 +19,8 @@
 #include <boost/function_types/parameter_types.hpp>
 #include <boost/function_types/result_type.hpp>
 
+namespace MPI
+{
 namespace bsp
 {
   namespace details
@@ -66,6 +68,57 @@ namespace bsp
     struct is_bsp_callable<boost::lambda::lambda_functor<T> > : boost::true_type {};
   }
 }
+}
 
+namespace OMP
+{
+namespace bsp
+{
+  namespace details
+  {
+    namespace bm = boost::mpl;
+    namespace bf = boost::function_types;
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Types are BSP compatible if :
+    // - they're a PFO that support a T(int) call
+    // - they're an unary function which :
+    //        - as only one arguments
+    //        - this one argument is integral
+    //        - returns non-void type
+    ////////////////////////////////////////////////////////////////////////////
+    template<class T, bool EnableIf = details::is_function_type<T>::value>
+    struct is_bsp_callable_impl
+         : details::is_result_of_supported<T(int)>
+    {};
+
+    template<class T>
+    struct is_bsp_callable_impl<T,true>
+         : bm::and_< bm::bool_< bf::function_arity<T>::value == 1 >
+                   , boost::is_integral<typename bm::at_c<typename bf::parameter_types<T>::type
+                                                         ,0
+                                                         >::type
+                                       >
+                   , bm::not_< boost::is_void<typename bf::result_type<T>::type> >
+                   >
+    {};
+   }
+
+  namespace traits
+  {
+    ////////////////////////////////////////////////////////////////////////////
+    // Check if T can be used as a BSP compatible function
+    ////////////////////////////////////////////////////////////////////////////
+    template<class T>
+    struct is_bsp_callable : details::is_bsp_callable_impl<T> {};
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Overload for boost::lambda
+    ////////////////////////////////////////////////////////////////////////////
+    template<class T>
+    struct is_bsp_callable<boost::lambda::lambda_functor<T> > : boost::true_type {};
+  }
+}
+}
 #endif
 

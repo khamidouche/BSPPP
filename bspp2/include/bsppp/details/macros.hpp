@@ -25,9 +25,19 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Remove warning for enable_if on constructor and other generic functions.
 ////////////////////////////////////////////////////////////////////////////////
+namespace MPI
+{
 namespace bsp
 {
   template<class T> void ignore_unused_param(T const&) {}
+}
+}
+namespace OMP
+{
+namespace bsp
+{
+  template<class T> void ignore_unused_param(T const&) {}
+}
 }
 
 #endif

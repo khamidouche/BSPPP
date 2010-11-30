@@ -16,7 +16,7 @@
 					<Add option="-O3" />
 					<Add option="-fopenmp" />
 					<Add option="-DBSP_OMP_TARGET" />
-					<Add directory="/usr/local/include/boost-1_40" />
+					<Add directory="/usr/local/include/boost-1_42" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
@@ -81,6 +81,7 @@
 		<Unit filename="include/bsppp/details/traits/enable_if_type.hpp" />
 		<Unit filename="include/bsppp/details/traits/is_function_type.hpp" />
 		<Unit filename="include/bsppp/details/traits/is_result_of_supported.hpp" />
+		<Unit filename="main.cpp" />
 		<Unit filename="src/environment.cpp" />
 		<Extensions>
 			<code_completion />

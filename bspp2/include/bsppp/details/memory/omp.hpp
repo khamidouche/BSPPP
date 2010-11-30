@@ -8,7 +8,8 @@
 #ifndef BSPPP_DETAILS_MEMORY_OMP_HPP_INCLUDED
 #define BSPPP_DETAILS_MEMORY_OMP_HPP_INCLUDED
 
-#if defined(BSP_OMP_TARGET)
+namespace OMP
+{
 namespace bsp
 {
   namespace details
@@ -39,6 +40,6 @@ namespace bsp
   }
 }
 
-#endif
+}
 
 #endif

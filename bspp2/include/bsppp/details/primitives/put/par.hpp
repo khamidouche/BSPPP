@@ -16,7 +16,8 @@
 #include <boost/range.hpp>
 
 
-
+namespace MPI
+{
 namespace bsp
 {
   //////////////////////////////////////////////////////////////////////////////
@@ -30,6 +31,9 @@ namespace bsp
     typedef details::put_data<T>        value_type;
     typedef details::put_data<T>&       reference;
     typedef details::put_data<T> const& const_reference;
+    typedef details::put_data<T>*       pointer;
+    typedef details::put_data<T> const* const_pointer;
+
     typedef typename value_type::base   base;
 
     par() : results_(details::put_impl<base>::extent()) {}
@@ -48,6 +52,57 @@ namespace bsp
     reference       operator*()       { return data_;  }
     const_reference operator*() const { return data_;  }
 
+    pointer         operator->()       { return &data_;  }
+    const_pointer   operator->() const { return &data_;  }
+
+    private:
+    details::buffer<base> results_;
+    value_type            data_;
+  };
+} }
+
+
+namespace OMP
+{
+namespace bsp
+{
+  //////////////////////////////////////////////////////////////////////////////
+  // BSP Parallel vector of put() result.
+  // This one is optimized so it doesn't allocate too much memory for the put
+  // result arrays. This is hidden by the result_of::put<T> type.
+  //////////////////////////////////////////////////////////////////////////////
+  template<class T> class par< details::put_data<T> >
+  {
+    public:
+    typedef details::put_data<T>        value_type;
+    typedef details::put_data<T>&       reference;
+    typedef details::put_data<T> const& const_reference;
+    typedef details::put_data<T>*       pointer;
+    typedef details::put_data<T> const* const_pointer;
+
+
+    typedef typename value_type::base   base;
+
+    par() : results_(details::put_impl<base>::extent()) {}
+
+    par( const_reference f ) : results_(details::put_impl<base>::extent())
+    {
+      data_.reset(f,&results_);
+    }
+
+    par& operator=( const_reference f )
+    {
+      data_.reset(f,&results_);
+      return *this;
+    }
+
+    reference       operator*()       { return data_;  }
+    const_reference operator*() const { return data_;  }
+
+    pointer         operator->()       { return &data_;  }
+    const_pointer   operator->() const { return &data_;  }
+
+
     private:
     details::buffer<base> results_;
     value_type            data_;
@@ -65,17 +120,18 @@ namespace bsp
 //      }
 //      else
 //      {
-        int offset= value.size()/bsp::size();
+        int offset= value.size()/size();
 
 
 
-        return boost::make_iterator_range(value.begin()+(offset*bsp::pid()),value.begin()+(offset*bsp::pid())+offset);
+        return boost::make_iterator_range(value.begin()+(offset*pid()),value.begin()+(offset*pid())+offset);
      // }
 
       }
 
 
 
+}
 }
 
 #endif

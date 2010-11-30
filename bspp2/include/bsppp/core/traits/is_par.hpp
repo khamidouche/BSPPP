@@ -12,6 +12,10 @@
 #include <boost/type_traits/integral_constant.hpp>
 #include <bsppp/core/pid.hpp>
 
+
+
+namespace MPI
+{
 namespace bsp
 {
   template<class T> class par;
@@ -34,5 +38,36 @@ namespace bsp
     {};
   }
 }
+
+}
+
+
+namespace OMP
+{
+namespace bsp
+{
+  template<class T> class par;
+
+  namespace details
+  {
+    using boost::integral_constant;
+    template<class T> struct is_par_impl                  : integral_constant<bool,false> {};
+    template<class T> struct is_par_impl<par<T> >         : integral_constant<bool,true> {};
+    template<>        struct is_par_impl<constant::pid_>  : integral_constant<bool,true> {};
+  }
+
+  namespace traits
+  {
+    ////////////////////////////////////////////////////////////////////////////
+    // Does T behaves as a BSP Parallel vector
+    ////////////////////////////////////////////////////////////////////////////
+    template<class T>
+    struct is_par : details::is_par_impl< typename boost::remove_cv<T>::type >
+    {};
+  }
+}
+
+}
+
 
 #endif

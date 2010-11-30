@@ -11,9 +11,11 @@
 /******************************************************************************
  * BSP sync for MPI
  ******************************************************************************/
-#if defined(BSP_MPI_TARGET)
+
 #include <bsppp/details/environment.hpp>
 
+namespace MPI
+{
 namespace bsp
 {
   void inline synchronize()
@@ -22,6 +24,6 @@ namespace bsp
   }
 }
 
-#endif
+}
 
 #endif

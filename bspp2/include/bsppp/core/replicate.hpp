@@ -11,6 +11,8 @@
 #include <boost/utility/result_of.hpp>
 #include <bsppp/core/par.hpp>
 
+namespace MPI
+{
 namespace bsp
 {
   namespace result_of
@@ -32,6 +34,33 @@ namespace bsp
     typename boost::result_of<result_of::replicate(T)>::type that = v;
     return that;
   }
+}
+}
+
+namespace OMP
+{
+namespace bsp
+{
+  namespace result_of
+  {
+    struct replicate
+    {
+      template<class Sig> struct result;
+      template<class This,class T> struct result<This(T)>
+      {
+        typedef par<T> type;
+      };
+    };
+  }
+
+  template<class T> inline
+  typename boost::result_of<result_of::replicate(T)>::type
+  replicate( T const& v )
+  {
+    typename boost::result_of<result_of::replicate(T)>::type that = v;
+    return that;
+  }
+}
 }
 
 #endif

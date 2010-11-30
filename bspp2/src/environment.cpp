@@ -8,11 +8,13 @@
 
 #include <bsppp/bsppp.hpp>
 
-#if defined(BSP_MPI_TARGET)
+#if defined(BSP_MPI_TARGET) or (BSP_HYB_TARGET)
 
 /******************************************************************************
  * MPI Parallel environnement
  ******************************************************************************/
+namespace MPI
+{
 namespace bsp
 {
   namespace details
@@ -26,5 +28,5 @@ namespace bsp
     bool                runtime::running      = false;
   }
 }
-
+}
 #endif

@@ -5,81 +5,90 @@
  *                 See accompanying file LICENSE.txt or copy at
  *                     http://www.boost.org/LICENSE_1_0.txt
  ******************************************************************************/
-#include <iostream>
-//#include <boost/lambda/lambda.hpp>
-//#include <boost/spirit/home/phoenix.hpp>
+
+
 #include <bsppp/bsppp.hpp>
-//#include <bsppp/core/replicate.hpp>
 
-using namespace std;
-using namespace bsp;
+int bsp_main(int argc, char** argv);
 
-//using namespace boost::phoenix;
-//using namespace boost::phoenix::arg_names;
 
-//template<class T> T iota(int i) { return T(1+(int)(i)); }
-//
-//struct sender
+#if defined(BSP_MPI_TARGET) || defined(BSP_HYB_TARGET)
+
+
+/******************************************************************************
+ * MPI Parallel environnement
+ ******************************************************************************/
+
+#include <boost/mpi.hpp>
+
+//namespace bsp
 //{
-//  sender() {}
-//  sender( par<int> const& v) : value(v) {}
-//
-//  template<class Sig> struct result;
-//  template<class This,class T> struct result<This(T)>
-//  {
-//    typedef int type;
-//  };
-//
-//  int operator()(int to)
-//  {
-//    return (*pid_ == to) ? -1 : (*pid_+1)*10+*value;
-//  }
-//  par<int> value;
-//};
-
-int main(int argc,char** argv)
+int main (int argc, char** argv)
 {
-  BSP_FUNCTION(argc,argv)
-  {
-//    int tab[] = {10,20,30,40,50,60,70,80};
-//    par<int> dec  = (boost::lambda::_1+1)*10;
-//    par<int> dec1 = &iota<int>;
-//    par<int> dec2 = tab;
-//
-//    result_of::proj<int>::type fw;
-//    int k = 0;
-//
-//    for(int i =0; i<100;++i)
-//    {
-//      // Super-step 1
-//      fw = proj(pid_);
-//
-//      //Super step 2
-//      for(int i=0;i<bsp::size();++i) k+= fw(i);
-//    }
-//
-//    printf("[%d] = %d\n",*pid_,k);
-//    synchronize();
-//
-//    par<int> dec  = (boost::lambda::_1+1)*10;
-//
-//    par< sender > p = sender(dec);
-//    result_of::put<sender>::type recv;
-//
-//    for(int i=0;i<10;++i)
-//    {
-//      // Super-step 3+
-//      recv = put( p );
-//
-//      // Super-step 4+
-//      printf("[%d] : %d %d %d %d \n",*pid_,(*recv)(0),(*recv)(1)
-//                                          ,(*recv)(2),(*recv)(3)
-//            );
-//      synchronize();
-//
-//      // Super-step 5+
-//      if(!*pid_) puts("");
-//    }
-  }
-  return 0;
+/// start the MPI env
+
+if(!MPI::bsp::details::runtime::running)
+        {
+          MPI::bsp::details::runtime::environment = new boost::mpi::environment(argc,argv);
+          MPI::bsp::details::runtime::rank        = MPI::bsp::details::runtime::world.rank();
+          MPI::bsp::details::runtime::procs       = MPI::bsp::details::runtime::world.size();
+          MPI::bsp::details::runtime::running     = true;
+        }
+
+/// call to the user main function
+
+bsp_main(argc, argv);
+
+
+/// Finalize the MPI env
+
+
+if(MPI::bsp::details::runtime::environment) delete MPI::bsp::details::runtime::environment;
+MPI::bsp::details::runtime::environment = 0;
+
+
+
+
+//}
+
+
 }
+
+#endif
+
+#if defined(BSP_OMP_TARGET)
+
+
+
+/******************************************************************************
+ * OMP Parallel environnement
+ ******************************************************************************/
+
+#include <omp.h>
+#include <boost/program_options.hpp>
+//namespace bsp
+//{
+int main (int argc, char** argv)
+{
+//using namespace OMP::bsp;
+
+/// start the OMP parallel section
+#pragma omp parallel
+{
+
+/// call to the user main function
+bsp_main(argc, argv);
+
+
+/// Finalize the MPI env
+
+}
+
+//}
+
+
+}
+
+
+
+#endif

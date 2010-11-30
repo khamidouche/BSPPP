@@ -15,7 +15,7 @@
 					<Add option="-O3" />
 					<Add option="-g" />
 					<Add option="-fopenmp" />
-					<Add option="-DBSP_OMP_TARGET" />
+					<Add option="-DBSP_HYB_TARGET" />
 					<Add directory="../../../../lib/lib/boost" />
 					<Add directory="../include" />
 					<Add directory="/usr/include/mpi" />
@@ -38,17 +38,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="bsp_GMM.hpp" />
-		<Unit filename="bsp_GMM_fine.hpp" />
-		<Unit filename="bsp_GMV.hpp" />
-		<Unit filename="bsp_GMV_ligne.hpp" />
+		<Unit filename="GMM.cpp" />
+		<Unit filename="PSRS.cpp" />
+		<Unit filename="PSRS_HYB.cpp" />
+		<Unit filename="data.hpp" />
 		<Unit filename="hello.cpp" />
-		<Unit filename="inprod.hpp" />
-		<Unit filename="test.hpp" />
-		<Unit filename="test_GMM.hpp" />
-		<Unit filename="test_GMM_fine.hpp" />
-		<Unit filename="test_GMV.hpp" />
-		<Unit filename="test_GMV_ligne.hpp" />
+		<Unit filename="inprod.cpp" />
+		<Unit filename="../include/bsppp/details/memory/hyb.hpp" />
+		<Unit filename="../include/bsppp/details/primitives/proj/hyb.hpp" />
+		<Unit filename="../include/bsppp/details/primitives/sync/hyb.hpp" />
 		<Unit filename="../src/environment.cpp" />
 		<Extensions>
 			<code_completion />

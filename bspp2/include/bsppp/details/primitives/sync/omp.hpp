@@ -11,10 +11,12 @@
 /******************************************************************************
  * BSP sync for OpenMP
  ******************************************************************************/
-#if defined(BSP_OMP_TARGET)
+
 
 #include <bsppp/details/environment.hpp>
 
+namespace OMP
+{
 namespace bsp
 {
   void inline synchronize()
@@ -23,6 +25,6 @@ namespace bsp
   }
 }
 
-#endif
+}
 
 #endif

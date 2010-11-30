@@ -9,13 +9,14 @@
 #define BSPPP_DETAILS_PRIMITIVES_PROJ_MPI_HPP_INCLUDED
 
 /******************************************************************************
- * BSP proj for OpenMP
+ * BSP proj for MPI
  ******************************************************************************/
-#if defined(BSP_MPI_TARGET)
+
 #include <algorithm>
 #include <boost/mpi/collectives.hpp>
 #include <bsppp/details/memory/buffer.hpp>
-
+namespace MPI
+{
 namespace bsp
 {
   namespace details
@@ -23,11 +24,12 @@ namespace bsp
     template<class T>
     inline void proj_impl(details::buffer<T>& data,int i,T const& v)
     {
+
       std::fill(&data[0],&data[0]+size(),v);
       bmpi::all_gather( runtime::world, &data[pid()], 1, &data[0] );
     }
   }
 }
-#endif
+}
 
 #endif
