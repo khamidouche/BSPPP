@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/parall/metascale/!svn/ver/368/bsppp/branches/bspp2/include/bsppp/details/primitives/put
+END
+data.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/parall/metascale/!svn/ver/1378/bsppp/branches/bspp2/include/bsppp/details/primitives/put/data.hpp
+END
+gpu.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/parall/metascale/!svn/ver/349/bsppp/branches/bspp2/include/bsppp/details/primitives/put/gpu.hpp
+END
+omp.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/parall/metascale/!svn/ver/1378/bsppp/branches/bspp2/include/bsppp/details/primitives/put/omp.hpp
+END
+par.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/parall/metascale/!svn/ver/368/bsppp/branches/bspp2/include/bsppp/details/primitives/put/par.hpp
+END
+mpi.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/parall/metascale/!svn/ver/1378/bsppp/branches/bspp2/include/bsppp/details/primitives/put/mpi.hpp
+END

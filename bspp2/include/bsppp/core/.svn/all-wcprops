@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/parall/metascale/!svn/ver/1355/bsppp/branches/bspp2/include/bsppp/core
+END
+primitives.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/parall/metascale/!svn/ver/349/bsppp/branches/bspp2/include/bsppp/core/primitives.hpp
+END
+pid.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/parall/metascale/!svn/ver/364/bsppp/branches/bspp2/include/bsppp/core/pid.hpp
+END
+par.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/parall/metascale/!svn/ver/1349/bsppp/branches/bspp2/include/bsppp/core/par.hpp
+END
+environment.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/parall/metascale/!svn/ver/1355/bsppp/branches/bspp2/include/bsppp/core/environment.hpp
+END
+replicate.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/parall/metascale/!svn/ver/360/bsppp/branches/bspp2/include/bsppp/core/replicate.hpp
+END
