@@ -80,13 +80,11 @@ void create_part(vector<par<vector<int> > >& out,vector<int> const& in, result_o
         {
             j=0;
             out[i]=vector<int> ();
-            //cout<<"inside ****   pid   "<<pid()<<"   i== "<<i <<endl;
             while((in[k]<=(*recv)(0)[i])&&(k<in.size()))
             {
                 (*out[i]).push_back(in[k]);
 
-//                  cout<<" /////// pid = "<<pid()<<"  out["<<i<<"]["<<j<<"] = "<<(*out[i])[j]<<endl;
-//                  cout<<" /*/*/*/ pid = "<<pid()<<"  in["<<k<<"]= "<<in[k]<<endl;
+
                    k++;j++;
             }
         }
@@ -139,7 +137,6 @@ int bsp_main(int argc, char** argv)
     n=(*recv0)(0);
     /// ****************** ///
 
-    //cout<<"ok  "<<rank_<<"  "<<nbproc<<"   n= "<<n<<endl;
 
     par<vector<int> > Gvect;
     Gvect=vector<int> (n/nbproc);

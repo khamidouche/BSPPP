@@ -164,7 +164,6 @@ int bsp_main(int argc, char** argv)
     n=(*recv0)(0);
     /// ****************** ///
 
-    //cout<<"ok  "<<rank_<<"  "<<nbproc<<"   n= "<<n<<endl;
 
     par<data<int> > matA;
     matA=data<int> (n/M,n/M);
@@ -205,9 +204,7 @@ int bsp_main(int argc, char** argv)
     //compute_GMM(data<int>const & A, data<int>const &B, data<int>& C)
     T1=time();
     for(int i=0;i<nbproc;i++)
-//     if(i==rank_)
-//      compute_GMM( *matA,*matB, *matC, n/sqrt(nbproc));
-//    else
+
       if((i%M==s)&&(i/M==t))
       compute_GMM( (*recv1)(i),(*recv2)(i), *matC, n/sqrt(nbproc));
 

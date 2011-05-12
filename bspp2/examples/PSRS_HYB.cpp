@@ -182,7 +182,7 @@ void SORT_HYB(int argc, char** argv,std::vector<int>& in, int n, std::vector<int
         sort(Gvect_hyb->begin(), Gvect_hyb->end());
 
 
-         //std::cout<<"rank = "<<rank_hyb<<" val = "<<(*Gvect_hyb)[3]<<std::endl;
+
 
         select1(*Sampl_hyb,*Gvect_hyb, n/(nbproc_hyb*nbproc_hyb));
 
@@ -219,7 +219,6 @@ void SORT_HYB(int argc, char** argv,std::vector<int>& in, int n, std::vector<int
         result_of_put< boost::function<vector<int> (int)> >::type recv2_hyb;
         recv2_hyb = put( s2_hyb );
 
-       // std::cout<<"**** rank= "<<rank_hyb<<"  recv2 = "<<((*recv2_hyb)(0))[0]<<std::endl;
 
         /// step 3 ////////
 
@@ -241,27 +240,20 @@ void SORT_HYB(int argc, char** argv,std::vector<int>& in, int n, std::vector<int
         synchronize();
         par<vector<int> >  output_hyb;
         output_hyb= vector<int> ();
-/// il faut un split_ref   et utiliser l'input comme sortie ///
-/// *Gvect_hyb.clean(); merge_out(*Gvect_Hyb, , )
+        /// il faut un split_ref   et utiliser l'input comme sortie ///
+        /// *Gvect_hyb.clean(); merge_out(*Gvect_Hyb, , )
 
 
 //       // Gvect_hyb->clean();
         merge_out_omp(*output_hyb,recv3_hyb,nbproc_hyb );
-       // std::cout<<"rank = "<<rank_hyb<<" size "<<output_hyb->size()<<std::endl;
-//
+
         sort(output_hyb->begin(), output_hyb->end());
-//
-//        //std::cout<<"rank = "<<rank_hyb<<" val = "<<(*output_hyb)[3]<<std::endl;
-//        synchronize();
-//
-//       // std::cout<<"rank = "<<rank_hyb<<" val = "<<(*output_hyb)[3]<<std::endl;
-//
 
 //        int offset=(n/nbproc_hyb)*rank_hyb;
 //        std::memcpy(&(out[offset]),&(*output_hyb),n/nbproc_hyb);
 //        synchronize();
 
-       //std::cout<<"rank = "<<rank_hyb<<" val output  = "<<out[3+offset]<<std::endl;
+
 
 
     }
@@ -361,8 +353,8 @@ void SORT_HYB_2(int argc, char** argv,std::vector<int>& in, int n, std::vector<i
         synchronize();
         par<vector<int> >  output_hyb;
         output_hyb= vector<int> ();
-/// il faut un split_ref   et utiliser l'input comme sortie ///
-/// *Gvect_hyb.clean(); merge_out(*Gvect_Hyb, , )
+        /// il faut un split_ref   et utiliser l'input comme sortie ///
+        /// *Gvect_hyb.clean(); merge_out(*Gvect_Hyb, , )
 
 
 //       // Gvect_hyb->clean();
